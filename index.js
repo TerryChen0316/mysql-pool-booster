@@ -2,7 +2,7 @@ var Pool = require('./lib/Pool');
 var PoolConfig = require('./lib/PoolConfig');
 var PoolCluster = require('./lib/PoolCluster');
 
-module.exports = function(mysql) {
+module.exports = function (mysql) {
   /**
    * Create a new Pool instance.
    * @param {object} mysql MySQL Instance
@@ -11,8 +11,10 @@ module.exports = function(mysql) {
    * @public
    */
 
-  mysql.createPool = function(config) {
-    return new Pool(mysql, {config: new PoolConfig(mysql, config)});
+  mysql.createPool = function (config) {
+    return new Pool(mysql, {
+      config: new PoolConfig(mysql, config)
+    });
   };
 
   /**
@@ -28,8 +30,8 @@ module.exports = function(mysql) {
   };
 
   mysql.CLUSTER_TYPE = {
-    WRITER : 'writer',
-    READER : 'reader'
+    WRITER: 'writer',
+    READER: 'reader'
   };
 
   return mysql;
